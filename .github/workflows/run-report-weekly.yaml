@@ -26,20 +26,11 @@ jobs:
       - name: Run Build
         run: npm run build
 
-      - name: Run Report (Qiita)
+      - name: Run Report
         run: node ./dist/main.js
         env:
-          GOOGLE_ANALYTICS_4_PROPERTY_ID: ${{ secrets.GOOGLE_ANALYTICS_4_PROPERTY_ID_QIITA }}
+          GOOGLE_ANALYTICS_4_PROPERTY_ID: ${{ secrets.GOOGLE_ANALYTICS_4_PROPERTY_ID }}
           GOOGLE_APPLICATION_CLIENT_EMAIL: ${{ secrets.GOOGLE_APPLICATION_CLIENT_EMAIL }}
           GOOGLE_APPLICATION_PRIVATE_KEY: ${{ secrets.GOOGLE_APPLICATION_PRIVATE_KEY }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_QIITA }}
-          DATE_RANGE: weekly
-
-      - name: Run Report (Zenn)
-        run: node ./dist/main.js
-        env:
-          GOOGLE_ANALYTICS_4_PROPERTY_ID: ${{ secrets.GOOGLE_ANALYTICS_4_PROPERTY_ID_ZENN }}
-          GOOGLE_APPLICATION_CLIENT_EMAIL: ${{ secrets.GOOGLE_APPLICATION_CLIENT_EMAIL }}
-          GOOGLE_APPLICATION_PRIVATE_KEY: ${{ secrets.GOOGLE_APPLICATION_PRIVATE_KEY }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_ZENN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           DATE_RANGE: weekly
